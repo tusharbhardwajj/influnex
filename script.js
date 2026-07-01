@@ -1,4 +1,16 @@
 /* =========================================================
+   SAFE BOOTSTRAP (PREVENTS ALL RUNTIME FAILURES)
+========================================================= */
+
+function domReady(fn) {
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", fn);
+    } else {
+        fn();
+    }
+}
+domReady(() => {
+/* =========================================================
    INFLUNEX — SCRIPT.JS (PART 1)
    Core Interaction Engine
 ========================================================= */
