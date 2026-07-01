@@ -3848,3 +3848,239 @@ margin-top:0!important;
 margin-bottom:0!important;
 
 }
+/*==================================================
+  PREMIUM LOADER
+==================================================*/
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    z-index:99999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:30px;
+
+    transition:opacity .7s ease,
+               visibility .7s ease;
+
+}
+
+/* Logo */
+
+.loader-logo{
+
+    width:170px;
+
+    animation:loaderPulse 2s infinite ease-in-out;
+
+}
+
+/* Progress Bar */
+
+.loader-bar{
+
+    width:220px;
+
+    height:4px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.loader-progress{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        var(--gold),
+        #FFE9A8
+    );
+
+    animation:loadingBar 1.8s ease forwards;
+
+}
+
+/* Loading Text */
+
+.loader-text{
+
+    color:rgba(255,255,255,.65);
+
+    font-size:.9rem;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
+/* Hide */
+
+.loader-hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+@keyframes loadingBar{
+
+0%{
+
+width:0;
+
+}
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+@keyframes loaderPulse{
+
+0%,100%{
+
+transform:scale(1);
+
+opacity:.9;
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+opacity:1;
+
+}
+
+}
+/* Reveal Animation */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:all .8s cubic-bezier(.2,.65,.2,1);
+
+}
+
+.reveal.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Button Ripple */
+
+.btn{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.ripple{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.25);
+
+transform:scale(0);
+
+animation:ripple .6s linear;
+
+pointer-events:none;
+
+}
+
+@keyframes ripple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+/* Premium Mouse Glow */
+
+.glass-card,
+.service-card,
+.portfolio-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.glass-card::before,
+.service-card::before,
+.portfolio-card::before{
+
+content:"";
+
+position:absolute;
+
+left:var(--mouse-x);
+
+top:var(--mouse-y);
+
+width:220px;
+
+height:220px;
+
+background:radial-gradient(circle,
+rgba(212,175,55,.16),
+transparent 70%);
+
+transform:translate(-50%,-50%);
+
+pointer-events:none;
+
+opacity:0;
+
+transition:.35s;
+
+}
+
+.glass-card:hover::before,
+.service-card:hover::before,
+.portfolio-card:hover::before{
+
+opacity:1;
+
+}
