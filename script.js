@@ -9,7 +9,7 @@ function domReady(fn) {
         fn();
     }
 }
-domReady(() => {
+
 /* =========================================================
    INFLUNEX — SCRIPT.JS (PART 1)
    Core Interaction Engine
@@ -865,4 +865,4 @@ document.querySelectorAll(".service-card, .feature-card").forEach((card) => {
         });
     });
 });
-});
+
