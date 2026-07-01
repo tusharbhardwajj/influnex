@@ -447,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
         PART 2 STARTS BELOW
     ==============================================*/
 
-});
+
 /*==================================================
     PART 2A
     FAQ + SCROLL REVEAL
