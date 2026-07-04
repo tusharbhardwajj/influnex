@@ -1049,3 +1049,224 @@ Designed & Developed with ❤️`,
     console.log("InfluNex initialized successfully.");
 
 }); // END DOMContentLoaded
+/*==================================
+SCROLL PROGRESS BAR
+==================================*/
+
+const progressBar = document.querySelector(".scroll-progress-bar");
+
+window.addEventListener("scroll",()=>{
+
+const scrollTop=window.pageYOffset;
+
+const height=document.documentElement.scrollHeight-window.innerHeight;
+
+const progress=(scrollTop/height)*100;
+
+if(progressBar){
+
+progressBar.style.width=progress+"%";
+
+}
+
+});
+/*==================================================
+MAGNETIC BUTTONS
+==================================================*/
+
+document.querySelectorAll(".btn").forEach(button=>{
+
+button.addEventListener("mousemove",e=>{
+
+const rect=button.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const moveX=(x-rect.width/2)/6;
+const moveY=(y-rect.height/2)/6;
+
+button.style.transform=
+`translate(${moveX}px,${moveY}px)`;
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.transform="translate(0,0)";
+
+});
+
+});
+
+/*==================================================
+3D CARD EFFECT
+==================================================*/
+
+document.querySelectorAll(
+
+".service-card,.portfolio-card,.why-card,.testimonial-card"
+
+)
+
+.forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+card.style.setProperty("--mouse-x",x+"px");
+card.style.setProperty("--mouse-y",y+"px");
+
+const rotateY=((x-rect.width/2)/18);
+const rotateX=((rect.height/2-y)/18);
+
+card.style.transform=
+
+`perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-10px)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="";
+
+});
+
+});
+/*==================================================
+HERO PARALLAX
+==================================================*/
+
+const hero=document.querySelector(".hero");
+
+if(hero){
+
+window.addEventListener("mousemove",e=>{
+
+const x=(e.clientX/window.innerWidth-.5)*25;
+
+const y=(e.clientY/window.innerHeight-.5)*25;
+
+hero.style.backgroundPosition=
+
+`${50+x}% ${50+y}%`;
+
+});
+
+}
+/*==================================================
+UPGRADE 5
+==================================================*/
+
+/* Text Reveal */
+
+const titles=document.querySelectorAll(".section-title");
+
+const titleObserver=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+
+{
+
+opacity:0,
+
+transform:"translateY(35px)"
+
+},
+
+{
+
+opacity:1,
+
+transform:"translateY(0)"
+
+}
+
+],
+
+{
+
+duration:700,
+
+easing:"ease-out",
+
+fill:"forwards"
+
+}
+
+);
+
+titleObserver.unobserve(entry.target);
+
+}
+
+});
+
+},
+
+{
+
+threshold:.25
+
+}
+
+);
+
+titles.forEach(title=>{
+
+titleObserver.observe(title);
+
+});
+
+/* Portfolio Lift */
+
+document.querySelectorAll(".portfolio-card")
+
+.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.animate(
+
+[
+
+{
+
+transform:"translateY(0)"
+
+},
+
+{
+
+transform:"translateY(-12px)"
+
+}
+
+],
+
+{
+
+duration:300,
+
+fill:"forwards"
+
+}
+
+);
+
+});
+
+});
