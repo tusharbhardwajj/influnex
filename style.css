@@ -2231,7 +2231,7 @@ font-size:1.3rem;
 
 }
 
-//*==================================================
+/*==================================================
   PART 2H — PROCESS TIMELINE
 ==================================================*/
 
@@ -3978,109 +3978,66 @@ opacity:1;
 }
 
 }
-/* Reveal Animation */
+/* ===============================
+   FLOATING ACTION DOCK
+=================================*/
 
-.reveal{
-
-opacity:0;
-
-transform:translateY(60px);
-
-transition:all .8s cubic-bezier(.2,.65,.2,1);
-
+.floating-dock{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    z-index:9999;
 }
 
-.reveal.show{
-
-opacity:1;
-
-transform:translateY(0);
-
+.dock-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+    border-radius:999px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    backdrop-filter:blur(18px);
+    background:rgba(20,20,20,.82);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+    transition:.35s ease;
 }
 
-/* Button Ripple */
-
-.btn{
-
-position:relative;
-
-overflow:hidden;
-
+.dock-btn span{
+    white-space:nowrap;
 }
 
-.ripple{
+.book-call{
+    background:linear-gradient(135deg,#D4AF37,#F6D365);
+    color:#111;
+}
 
-position:absolute;
+.whatsapp{
+    background:#25D366;
+}
 
+.dock-btn:hover{
+    transform:translateY(-6px) scale(1.04);
+    box-shadow:0 22px 55px rgba(0,0,0,.35);
+}
+
+@media(max-width:768px){
+
+.dock-btn span{
+display:none;
+}
+
+.dock-btn{
+padding:16px;
 border-radius:50%;
-
-background:rgba(255,255,255,.25);
-
-transform:scale(0);
-
-animation:ripple .6s linear;
-
-pointer-events:none;
-
+width:58px;
+height:58px;
+justify-content:center;
 }
-
-@keyframes ripple{
-
-to{
-
-transform:scale(4);
-
-opacity:0;
-
-}
-
-}
-/* Premium Mouse Glow */
-
-.glass-card,
-.service-card,
-.portfolio-card{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.glass-card::before,
-.service-card::before,
-.portfolio-card::before{
-
-content:"";
-
-position:absolute;
-
-left:var(--mouse-x);
-
-top:var(--mouse-y);
-
-width:220px;
-
-height:220px;
-
-background:radial-gradient(circle,
-rgba(212,175,55,.16),
-transparent 70%);
-
-transform:translate(-50%,-50%);
-
-pointer-events:none;
-
-opacity:0;
-
-transition:.35s;
-
-}
-
-.glass-card:hover::before,
-.service-card:hover::before,
-.portfolio-card:hover::before{
-
-opacity:1;
 
 }
