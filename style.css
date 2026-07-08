@@ -1993,11 +1993,11 @@ font-size:1.3rem;
     object-fit:cover;
     object-position:center;
     display:block;
-    transition:transform .6s ease;
+  
 }
 
 .portfolio-card:hover .portfolio-image img{
-    transform:scale(1.08);
+    transform:none;
 }
 
 /* Content */
