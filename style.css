@@ -1968,6 +1968,9 @@ font-size:1.3rem;
     flex-direction:column;
     height:100%;
     transition:.4s ease;
+  display:block;
+    text-decoration:none;
+    color:inherit;
 }
 
 .portfolio-card:hover{
