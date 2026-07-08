@@ -4509,8 +4509,29 @@ drop-shadow(0 0 20px rgba(212,175,55,.55));
   
 
 }
-@media (max-width: 768px) {
-  .floating-dock {
-    bottom: 90px;
+@media (max-width:768px){
+
+  .floating-dock{
+      right:16px;
+      bottom:90px;
+      gap:12px;
   }
+
+  .dock-btn{
+      width:56px;
+      height:56px;
+      padding:0;
+      border-radius:50%;
+      justify-content:center;
+      align-items:center;
+  }
+
+  .dock-btn span{
+      display:none;
+  }
+
+  .dock-btn i{
+      font-size:22px;
+  }
+
 }
