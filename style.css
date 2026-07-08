@@ -4509,6 +4509,14 @@ drop-shadow(0 0 20px rgba(212,175,55,.55));
   
 
 }
+/* ===============================
+   MOBILE FIXES
+================================= */
+
+.contact{
+    padding-bottom:120px;
+}
+
 @media (max-width:768px){
 
   .floating-dock{
@@ -4534,4 +4542,20 @@ drop-shadow(0 0 20px rgba(212,175,55,.55));
       font-size:22px;
   }
 
+  .contact-card{
+      padding:30px 20px;
+  }
+
+  .contact-info{
+      gap:24px;
+  }
+
+  .contact-info-item i{
+      width:60px;
+      height:60px;
+  }
+
+  .site-logo{
+      height:42px;
+  }
 }
