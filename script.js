@@ -557,6 +557,7 @@ document.addEventListener("DOMContentLoaded", () => {
         IMAGE PARALLAX
     ==============================================*/
 
+    
     const images = document.querySelectorAll(
 
         ".portfolio-image img"
@@ -573,8 +574,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
             images.forEach(img => {
 
-                 img.style.transform = "none";
-});
+                const card = img.closest(".portfolio-card");
+
+                if (!card) return;
+
+                const rect = card.getBoundingClientRect();
+
+                if (
+
+                    rect.top < window.innerHeight &&
+                    rect.bottom > 0
+
+                ) {
+
+                    const speed = scroll * 0.04;
+
+                    img.style.transform =
+                        `translateY(${speed}px) scale(1.05)`;
+
+                }
+
+            });
+
+        }, 20)
+
+    );
+
 
     /*==============================================
         BUTTON RIPPLE EFFECT
