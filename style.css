@@ -1949,76 +1949,96 @@ font-size:1.3rem;
 
 /* Grid */
 
+/* ==================================
+   PORTFOLIO IMAGE FIX
+================================== */
+
 .portfolio-grid{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:32px;
-
 }
 
-/* Card */
-
 .portfolio-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:26px;
-
     background:#111;
-
+    border-radius:26px;
+    overflow:hidden;
     border:1px solid rgba(255,255,255,.08);
-
-    transition:.45s ease;
-
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    transition:.4s ease;
 }
 
 .portfolio-card:hover{
-
-    transform:translateY(-12px);
-
-    border-color:rgba(212,175,55,.30);
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.45),
-        0 0 35px rgba(212,175,55,.10);
-
+    transform:translateY(-10px);
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
-/* Thumbnail */
-
+/* Image Container */
 .portfolio-image{
-
-    position:relative;
-
-    overflow:hidden;
-
-    aspect-ratio:16/10;
-
-}
-
-.portfolio-image img{
-
     width:100%;
+    height:260px;
+    overflow:hidden;
+    position:relative;
+}
 
+/* Image */
+.portfolio-image img{
+    width:100%;
     height:100%;
-
     object-fit:cover;
-
-    transition:.7s ease;
-
+    object-position:center;
+    display:block;
+    transition:transform .6s ease;
 }
 
-.portfolio-card:hover img{
-
+.portfolio-card:hover .portfolio-image img{
     transform:scale(1.08);
+}
+
+/* Content */
+.portfolio-content{
+    padding:28px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.portfolio-content h3{
+    margin-bottom:14px;
+}
+
+.portfolio-content p{
+    line-height:1.7;
+    flex:1;
+}
+
+/* Tablet */
+@media (max-width:992px){
+
+    .portfolio-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
 }
 
+/* Mobile */
+@media (max-width:768px){
+
+    .portfolio-grid{
+        grid-template-columns:1fr;
+    }
+
+    .portfolio-image{
+        height:220px;
+    }
+
+    .portfolio-content{
+        padding:22px;
+    }
+
+}
 /* Dark Overlay */
 
 .portfolio-overlay{
