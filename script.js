@@ -573,31 +573,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             images.forEach(img => {
 
-                const card = img.closest(".portfolio-card");
-
-                if (!card) return;
-
-                const rect = card.getBoundingClientRect();
-
-                if (
-
-                    rect.top < window.innerHeight &&
-                    rect.bottom > 0
-
-                ) {
-
-                    const speed = scroll * 0.04;
-
-                    img.style.transform =
-                        `translateY(${speed}px) scale(1.05)`;
-
-                }
-
-            });
-
-        }, 20)
-
-    );
+                 img.style.transform = "none";
+});
 
     /*==============================================
         BUTTON RIPPLE EFFECT
